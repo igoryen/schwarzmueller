@@ -9,6 +9,9 @@
 </head>
 <body>
     <div id="app">
+        <input type="text" v-model="name">
+        <p>{{ name }}</p>
+        <hr>
         <button v-on:click="increase(2, $event)">Click me</button>
         <button v-on:click="counter++">Click me 2</button>
         <p>{{ counter * 3 > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p>

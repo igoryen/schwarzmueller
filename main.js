@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     data: {
+        name: "Igor",
         counter: 0,
         x: 0,
         y: 0,
