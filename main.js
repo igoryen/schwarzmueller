@@ -1,6 +1,8 @@
 new Vue({
     el: "#app",
     data: {
+        age: 0,
+        majority: '',
         name: "Igor",
         counter: 0,
         x: 0,
@@ -10,6 +12,10 @@ new Vue({
         finishedLink: '<a href="http://google.com">Google</a>'
     },
     methods: {
+        increaseAge: function(){
+            this.age++;
+            this.majority = this.age < 18 ? "Minor" : 'Of age'
+        },
         increase: function( step, event ){
             this.counter += step;
         },

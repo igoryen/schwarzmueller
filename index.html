@@ -9,6 +9,10 @@
 </head>
 <body>
     <div id="app">
+        <button v-on:click="increaseAge">Increase Age</button>
+        <p>Age: {{ age }}</p>
+        <p>Majority: {{ majority }}</p>
+        <hr>
         <input type="text" v-model="name">
         <p>{{ name }}</p>
         <hr>
