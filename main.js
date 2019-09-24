@@ -6,6 +6,7 @@ new Vue({
     },
     methods: {
         sayHello: function(){
+            this.title = "Hola!";
             return this.title;
         }
     }
