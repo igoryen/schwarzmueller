@@ -2,6 +2,8 @@ new Vue({
     el: "#app",
     data: {
         counter: 0,
+        x: 0,
+        y: 0,
         title: "Hello World!",
         link: "http://youtube.com",
         finishedLink: '<a href="http://google.com">Google</a>'
@@ -9,6 +11,10 @@ new Vue({
     methods: {
         increase: function(){
             this.counter++;
+        },
+        updateCoordinates: function( event ) {
+            this.x = event.clientX;
+            this.y = event.clientY;
         },
         sayHello: function(){
             this.title = "Hola!";
