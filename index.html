@@ -9,10 +9,11 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="altitude++">Increase Altitude</button>
-        <button v-on:click="altitude--">Decrease Altitude</button>
-        <p>Meters: {{ altitude }}</p>
-        <p>Perception: {{ highlow() }}</p>
+        <button v-on:click="altitude++">Increase Altitude 1</button>
+        <button v-on:click="altitude--">Decrease Altitude 1</button>
+        <button v-on:click="secondAltitude++">Increase Altitude 2</button>
+        <p>Meters: {{ altitude }} | {{ secondAltitude }}</p>
+        <p>Perception: {{ highlow() }} | {{ lowhigh }} </p>
         <hr>
         <button v-on:click="increaseAge">Increase Age</button>
         <button v-on:click="decreaseAge">Decrease Age</button>

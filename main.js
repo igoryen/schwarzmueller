@@ -2,6 +2,7 @@ new Vue({
     el: "#app",
     data: {
         altitude: 0,
+        secondAltitude: 0,
         age: 0,
         majority: '',
         name: "Igor",
@@ -11,6 +12,11 @@ new Vue({
         title: "Hello World!",
         link: "http://youtube.com",
         finishedLink: '<a href="http://google.com">Google</a>'
+    },
+    computed: {
+        lowhigh: function(){
+            return this.altitude < 3 ? "Low" : "High!";
+        }
     },
     methods: {
         highlow() {
