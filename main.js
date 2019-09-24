@@ -12,6 +12,9 @@ new Vue({
         increase: function( step, event ){
             this.counter += step;
         },
+        alertMe: function() {
+            alert('Alert!');
+        },
         updateCoordinates: function( event ) {
             this.x = event.clientX;
             this.y = event.clientY;
