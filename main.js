@@ -9,7 +9,7 @@ new Vue({
         finishedLink: '<a href="http://google.com">Google</a>'
     },
     methods: {
-        increase: function( step ){
+        increase: function( step, event ){
             this.counter += step;
         },
         updateCoordinates: function( event ) {
