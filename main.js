@@ -16,6 +16,10 @@ new Vue({
             this.age++;
             this.majority = this.age < 18 ? "Minor" : 'Of age'
         },
+        decreaseAge: function(){
+            this.age--;
+            this.majority = this.age < 18 ? "Minor" : 'Of age'
+        },
         increase: function( step, event ){
             this.counter += step;
         },
