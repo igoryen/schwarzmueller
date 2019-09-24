@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     data: {
+        altitude: 0,
         age: 0,
         majority: '',
         name: "Igor",
@@ -12,6 +13,9 @@ new Vue({
         finishedLink: '<a href="http://google.com">Google</a>'
     },
     methods: {
+        highlow() {
+            return this.altitude < 3 ? "Low" : "High!"
+        },
         increaseAge: function(){
             this.age++;
             this.majority = this.age < 18 ? "Minor" : 'Of age'
