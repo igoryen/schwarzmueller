@@ -56,7 +56,7 @@
             <h1 v-once>{{ title }}</h1>
             <p>{{ sayHello() }} - <a :href="link" target="_blank">Youtube</a></p>
         </div>
-        <div class="demo" :class="{feta: toggleColor}" :style="myStyle">
+        <div class="demo" :class="{feta: toggleColor}" :style="[myStyle, {height: width + 'px'}]">
             <p v-html="finishedLink"></p>
         </div>
     </div>
