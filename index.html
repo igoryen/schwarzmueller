@@ -28,7 +28,10 @@
         <div class="demo">
             <p v-if="insert">You can see me!</p>
             <p v-else>No me puedes ver!</p>
-            <p>Can you also see me?</p>
+            <template v-if="insert">
+                <p>...Inside a template...</p>
+            </template>
+            <p v-show="insert">Can you also see me?</p>
             <button @click="insert = !insert">Modify DOM</button>
         </div>
         <div class="demo">
