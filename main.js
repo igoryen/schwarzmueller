@@ -18,6 +18,14 @@ new Vue({
             return this.altitude < 3 ? "Low" : "High!";
         }
     },
+    watch: {
+        altitude: function( value ){
+            var vm = this; // 1
+            setTimeout( function(){
+                vm.altitude = 0;
+            }, 2000 );
+        }
+    },
     methods: {
         highlow() {
             return this.altitude < 3 ? "Low" : "High!"
