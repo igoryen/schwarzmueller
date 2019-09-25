@@ -51,7 +51,7 @@
             <p @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} - <span @mousemove.stop>DEAD SPOT</span></p>
             <input type="text" @keyup.enter.space="alertMe">
         </div>
-        <div class="demo">
+        <div class="demo" :style="{backgroundColor: tint}">
             <h1 v-once>{{ title }}</h1>
             <p>{{ sayHello() }} - <a :href="link" target="_blank">Youtube</a></p>
         </div>
