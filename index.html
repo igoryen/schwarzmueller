@@ -25,6 +25,8 @@
 </head>
 <body>
     <div id="app">
+        <input type="text" v-model="tint">
+        <hr>
         <div class="demo" @click="toggleColor = !toggleColor" :class="{azalea: toggleColor}">
             <button @click="altitude++">Increase Altitude 1</button>
             <button @click="altitude--">Decrease Altitude 1</button>
@@ -42,7 +44,7 @@
             <input type="text" v-model="name">
             <p>{{ name }}</p>
         </div>
-        <div class="demo">
+        <div class="demo" :class="tint">
             <button @click="increase(2, $event)">Click me</button>
             <button @click="counter++">Click me 2</button>
             <p>{{ counter * 3 > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p>

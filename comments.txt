@@ -1,1 +1,2 @@
 1. save the Vuejs instance, so that the callback can access its props
+2. two-way binding.

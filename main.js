@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     data: {
+        tint: "feta", // 2
         toggleColor: false,
         altitude: 0,
         secondAltitude: 0,
