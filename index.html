@@ -9,25 +9,25 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="altitude++">Increase Altitude 1</button>
-        <button v-on:click="altitude--">Decrease Altitude 1</button>
-        <button v-on:click="secondAltitude++">Increase Altitude 2</button>
+        <button @click="altitude++">Increase Altitude 1</button>
+        <button @click="altitude--">Decrease Altitude 1</button>
+        <button @click="secondAltitude++">Increase Altitude 2</button>
         <p>Meters: {{ altitude }} | {{ secondAltitude }}</p>
         <p>Perception: {{ highlow() }} | {{ lowhigh }} </p>
         <hr>
-        <button v-on:click="increaseAge">Increase Age</button>
-        <button v-on:click="decreaseAge">Decrease Age</button>
+        <button @click="increaseAge">Increase Age</button>
+        <button @click="decreaseAge">Decrease Age</button>
         <p>Age: {{ age }}</p>
         <p>Majority: {{ majority }}</p>
         <hr>
         <input type="text" v-model="name">
         <p>{{ name }}</p>
         <hr>
-        <button v-on:click="increase(2, $event)">Click me</button>
-        <button v-on:click="counter++">Click me 2</button>
+        <button @click="increase(2, $event)">Click me</button>
+        <button @click="counter++">Click me 2</button>
         <p>{{ counter * 3 > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p>
-        <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} - <span v-on:mousemove.stop>DEAD SPOT</span></p>
-        <input type="text" v-on:keyup.enter.space="alertMe">
+        <p @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} - <span @mousemove.stop>DEAD SPOT</span></p>
+        <input type="text" @keyup.enter.space="alertMe">
         <hr>
         <h1 v-once>{{ title }}</h1>
         <p>{{ sayHello() }} - <a v-bind:href="link" target="_blank">Youtube</a></p>
