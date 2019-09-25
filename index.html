@@ -30,7 +30,7 @@
         <input type="text" @keyup.enter.space="alertMe">
         <hr>
         <h1 v-once>{{ title }}</h1>
-        <p>{{ sayHello() }} - <a v-bind:href="link" target="_blank">Youtube</a></p>
+        <p>{{ sayHello() }} - <a :href="link" target="_blank">Youtube</a></p>
         <hr>
         <p v-html="finishedLink"></p>
     </div>
