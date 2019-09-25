@@ -26,8 +26,9 @@
 <body>
     <div id="app">
         <div class="demo">
-            <p>You can see me!</p>
+            <p v-if="insert">You can see me!</p>
             <p>Can you also see me?</p>
+            <button @click="insert = !insert">Modify DOM</button>
         </div>
         <div class="demo">
             <p>Pick a color: <input type="text" v-model="tint"></p>

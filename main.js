@@ -1,7 +1,7 @@
 new Vue({
     el: "#app",
     data: {
-        unveil: true, // 3
+        insert: true, // 3
         width: 200,
         tint: "feta", // 2
         toggleColor: false,
