@@ -12,24 +12,33 @@
             padding: 10px;
             border-radius: 3px;
         }
+        .azalea {
+            background-color: #f8d7d3;
+        }
+        .feta {
+            background-color: #d5f9d2;
+        }
+        .sail {
+            background-color: #acd3fb;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-        <div class="demo">
+        <div class="demo" @click="toggleColor = !toggleColor" :class="{azalea: toggleColor}">
             <button @click="altitude++">Increase Altitude 1</button>
             <button @click="altitude--">Decrease Altitude 1</button>
             <button @click="secondAltitude++">Increase Altitude 2</button>
             <p>Meters: {{ altitude }} | {{ secondAltitude }}</p>
             <p>Perception: {{ highlow() }} | {{ lowhigh }} </p>
         </div>
-        <div class="demo">
+        <div class="demo" :class="{feta: toggleColor}">
             <button @click="increaseAge">Increase Age</button>
             <button @click="decreaseAge">Decrease Age</button>
             <p>Age: {{ age }}</p>
             <p>Majority: {{ majority }}</p>
         </div>
-        <div class="demo">
+        <div class="demo" :class="{sail: toggleColor}">
             <input type="text" v-model="name">
             <p>{{ name }}</p>
         </div>

@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     data: {
+        toggleColor: false,
         altitude: 0,
         secondAltitude: 0,
         age: 0,
