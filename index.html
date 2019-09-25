@@ -5,34 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>V</title>
     <script src="vue.js"></script>
-    
+    <style>
+        .demo {
+            background-color: #ccc;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <button @click="altitude++">Increase Altitude 1</button>
-        <button @click="altitude--">Decrease Altitude 1</button>
-        <button @click="secondAltitude++">Increase Altitude 2</button>
-        <p>Meters: {{ altitude }} | {{ secondAltitude }}</p>
-        <p>Perception: {{ highlow() }} | {{ lowhigh }} </p>
-        <hr>
-        <button @click="increaseAge">Increase Age</button>
-        <button @click="decreaseAge">Decrease Age</button>
-        <p>Age: {{ age }}</p>
-        <p>Majority: {{ majority }}</p>
-        <hr>
-        <input type="text" v-model="name">
-        <p>{{ name }}</p>
-        <hr>
-        <button @click="increase(2, $event)">Click me</button>
-        <button @click="counter++">Click me 2</button>
-        <p>{{ counter * 3 > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p>
-        <p @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} - <span @mousemove.stop>DEAD SPOT</span></p>
-        <input type="text" @keyup.enter.space="alertMe">
-        <hr>
-        <h1 v-once>{{ title }}</h1>
-        <p>{{ sayHello() }} - <a :href="link" target="_blank">Youtube</a></p>
-        <hr>
-        <p v-html="finishedLink"></p>
+        <div class="demo">
+            <button @click="altitude++">Increase Altitude 1</button>
+            <button @click="altitude--">Decrease Altitude 1</button>
+            <button @click="secondAltitude++">Increase Altitude 2</button>
+            <p>Meters: {{ altitude }} | {{ secondAltitude }}</p>
+            <p>Perception: {{ highlow() }} | {{ lowhigh }} </p>
+        </div>
+        <div class="demo">
+            <button @click="increaseAge">Increase Age</button>
+            <button @click="decreaseAge">Decrease Age</button>
+            <p>Age: {{ age }}</p>
+            <p>Majority: {{ majority }}</p>
+        </div>
+        <div class="demo">
+            <input type="text" v-model="name">
+            <p>{{ name }}</p>
+        </div>
+        <div class="demo">
+            <button @click="increase(2, $event)">Click me</button>
+            <button @click="counter++">Click me 2</button>
+            <p>{{ counter * 3 > 10 ? 'Greater than 10' : 'Smaller than 10'}}</p>
+            <p @mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} - <span @mousemove.stop>DEAD SPOT</span></p>
+            <input type="text" @keyup.enter.space="alertMe">
+        </div>
+        <div class="demo">
+            <h1 v-once>{{ title }}</h1>
+            <p>{{ sayHello() }} - <a :href="link" target="_blank">Youtube</a></p>
+        </div>
+        <div class="demo">
+            <p v-html="finishedLink"></p>
+        </div>
     </div>
 
     <script src="main.js"></script>
