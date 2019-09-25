@@ -25,9 +25,10 @@
 </head>
 <body>
     <div id="app">
-        <p>Pick a color: <input type="text" v-model="tint"></p>
-        <p>Pick a width: <input type="text" v-model="width"></p>
-        <hr>
+        <div class="demo">
+            <p>Pick a color: <input type="text" v-model="tint"></p>
+            <p>Pick a width: <input type="text" v-model="width"></p>
+        </div>
         <div class="demo" @click="toggleColor = !toggleColor" :class="{azalea: toggleColor}">
             <button @click="altitude++">Increase Altitude 1</button>
             <button @click="altitude--">Decrease Altitude 1</button>
