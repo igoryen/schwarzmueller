@@ -38,7 +38,7 @@
             <p>Age: {{ age }}</p>
             <p>Majority: {{ majority }}</p>
         </div>
-        <div class="demo" :class="{sail: toggleColor, feta: !toggleColor}">
+        <div class="demo" :class="bkgColorToggle">
             <input type="text" v-model="name">
             <p>{{ name }}</p>
         </div>

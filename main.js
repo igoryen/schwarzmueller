@@ -15,6 +15,12 @@ new Vue({
         finishedLink: '<a href="http://google.com">Google</a>'
     },
     computed: {
+        bkgColorToggle: function() {
+            return {
+                sail: this.toggleColor,
+                feta: !this.toggleColor
+            };
+        },
         lowhigh: function(){
             return this.altitude < 3 ? "Low" : "High!";
         }
