@@ -1,6 +1,7 @@
 new Vue({
     el: "#app",
     data: {
+        width: 200,
         tint: "feta", // 2
         toggleColor: false,
         altitude: 0,
@@ -16,6 +17,12 @@ new Vue({
         finishedLink: '<a href="http://google.com">Google</a>'
     },
     computed: {
+        myStyle: function(){
+            return {
+                backgroundColor: this.tint,
+                width: this.width + 'px'
+            }
+        },
         bkgColorToggle: function() {
             return {
                 sail: this.toggleColor,

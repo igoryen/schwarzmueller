@@ -26,6 +26,7 @@
 <body>
     <div id="app">
         <p>Pick a color: <input type="text" v-model="tint"></p>
+        <p>Pick a width: <input type="text" v-model="width"></p>
         <hr>
         <div class="demo" @click="toggleColor = !toggleColor" :class="{azalea: toggleColor}">
             <button @click="altitude++">Increase Altitude 1</button>
@@ -55,7 +56,7 @@
             <h1 v-once>{{ title }}</h1>
             <p>{{ sayHello() }} - <a :href="link" target="_blank">Youtube</a></p>
         </div>
-        <div class="demo">
+        <div class="demo" :class="{feta: toggleColor}" :style="myStyle">
             <p v-html="finishedLink"></p>
         </div>
     </div>
