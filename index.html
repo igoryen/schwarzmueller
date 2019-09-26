@@ -27,6 +27,7 @@
     <div id="app">
         
         <div class="demo">
+            <button @click="ingredients.push('spices')">Add new ingredient</button>
             <ul>
                 <li v-for="(ingredient, i) in ingredients">{{ i }}) {{ ingredient }}</li>
             </ul>
