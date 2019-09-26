@@ -29,7 +29,7 @@
         <div class="demo">
             <button @click="ingredients.push('spices')">Add new ingredient</button>
             <ul>
-                <li v-for="(ingredient, i) in ingredients">{{ i }}) {{ ingredient }}</li>
+                <li v-for="(ingredient, i) in ingredients" :key="ingredient">{{ i }}) {{ ingredient }}</li>
             </ul>
             <template v-for="(ingredient, index) in ingredients">
                 <p>
