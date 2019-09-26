@@ -25,6 +25,12 @@
 </head>
 <body>
     <div id="app">
+        
+        <div class="demo">
+            <ul>
+                <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+            </ul>
+        </div>
         <div class="demo">
             <p v-if="insert">You can see me!</p>
             <p v-else>No me puedes ver!</p>

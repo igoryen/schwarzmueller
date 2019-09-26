@@ -1,6 +1,11 @@
 new Vue({
     el: "#app",
     data: {
+        ingredients: ['meat', 'fruit', 'cookies'],
+        persons: [
+            { name: 'Igor', age: '44', color: 'blue'},
+            { name: 'Jenica', age: 'unknown', color: 'green'}
+        ],
         insert: true, // 3
         width: 200,
         tint: "feta", // 2
