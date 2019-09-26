@@ -38,7 +38,9 @@
             </template>
             <hr>
             <ul>
-                <li v-for="person in persons">{{ person.name }}</li>
+                <li v-for="soul in persons">
+                    <div v-for="(value, key, index) in soul">{{index}}) {{ key }}: {{ value }}</div>
+                </li>
             </ul>
         </div>
         <div class="demo">
