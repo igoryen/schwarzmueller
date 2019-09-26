@@ -30,6 +30,12 @@
             <ul>
                 <li v-for="(ingredient, i) in ingredients">{{ i }}) {{ ingredient }}</li>
             </ul>
+            <template v-for="(ingredient, index) in ingredients">
+                <p>
+                    <span>{{ ingredient }}</span>
+                    <span>{{ index }}</span>
+                </p>
+            </template>
         </div>
         <div class="demo">
             <p v-if="insert">You can see me!</p>
