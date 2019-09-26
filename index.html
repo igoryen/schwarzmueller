@@ -36,6 +36,10 @@
                     <span>{{ index }}</span>
                 </p>
             </template>
+            <hr>
+            <ul>
+                <li v-for="person in persons">{{ person.name }}</li>
+            </ul>
         </div>
         <div class="demo">
             <p v-if="insert">You can see me!</p>
