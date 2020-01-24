@@ -15,26 +15,16 @@ new Vue({
         // 2. get damaged
         // 3. finish our turn
         attack: function () {
-            var max = 10;
-            var min = 3;
-            // get random number between 3 and 10
-            var damage = Math.max(Math.floor(Math.random() * max) + 1, min);
-            this.monsterHealth -= damage;
 
-            if (this.monsterHealth <= 0) {
-                alert("You won!");
-                this.gameIsRunning = false;
+            this.monsterHealth -= this.calculateDamage(3, 10);
+
+            if (this.win2()) {
+                return;
             }
 
-            max = 12;
-            min = 5;
-            damage = Math.max(Math.floor(Math.random() * max) + 1, min);
-            this.playerHealth -= damage;
+            this.playerHealth -= this.calculateDamage(5, 12);
 
-            if (this.playerHealth <= 0) {
-                alert("You lost!");
-                this.gameIsRunning = false;
-            }
+            this.win2();
 
         },
         // inflict more damage than the usual attack
@@ -48,6 +38,32 @@ new Vue({
         // restart the game
         giveUp: function () {
 
+        },
+        calculateDamage: function (min, max) {
+            // get random number between {min} and {max} 
+            return Math.max(Math.floor(Math.random() * max) + 1, min);
+        },
+        // win2 = "Win?" - check if you have won yet
+        win2: function () {
+            if (this.monsterHealth <= 0) {
+                if (confirm("You win! Play again?")) {
+                    this.startGame();
+                }
+                else {
+                    this.gameIsRunning = false;
+                }
+                return true;
+
+            }
+            else if (this.playerHealth <= 0) {
+                if (confirm("You lose! Play again?")) {
+                    this.startGame();
+                }
+                else {
+                    this.gameIsRunning = false;
+                }
+                return true;
+            }
         }
     }
 });
