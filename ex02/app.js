@@ -17,19 +17,18 @@ new Vue({
         attack: function () {
 
             this.monsterHealth -= this.calculateDamage(3, 10);
-
             if (this.win2()) {
                 return;
             }
-
-            this.playerHealth -= this.calculateDamage(5, 12);
-
-            this.win2();
-
+            this.monsterAttack();
         },
         // inflict more damage than the usual attack
         specialAttack: function () {
-
+            this.monsterHealth -= this.calculateDamage(10, 20);
+            if (this.win2()) {
+                return;
+            }
+            this.monsterAttack();
         },
         // restore Health
         heal: function () {
@@ -38,6 +37,10 @@ new Vue({
         // restart the game
         giveUp: function () {
 
+        },
+        monsterAttack: function() {
+            this.playerHealth -= this.calculateDamage(5, 12);
+            this.win2();
         },
         calculateDamage: function (min, max) {
             // get random number between {min} and {max} 
