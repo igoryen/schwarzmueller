@@ -11,6 +11,7 @@ new Vue({
             this.gameIsRunning = true;
             this.playerHealth = 100;
             this.monsterHealth = 100;
+            this.turns = [];
         },
         // 1. inflict random quantity of damage to the monster
         // 2. get damaged
@@ -29,7 +30,12 @@ new Vue({
         },
         // inflict more damage than the usual attack
         specialAttack: function () {
-            this.monsterHealth -= this.calculateDamage(10, 20);
+            var damage = this.calculateDamage(10, 20);
+            this.monsterHealth -= damage;
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits Monster hard for ' + damage
+            });
             if (this.win2()) {
                 return;
             }
@@ -43,6 +49,10 @@ new Vue({
             else {
                 this.playerHealth = 100;
             }
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player heals for 10'
+            });
             this.monsterAttack();
         },
         // restart the game
