@@ -11,8 +11,8 @@
                 <hr>
                 <app-another-counter></app-another-counter>
                 <hr>
-                <input type="text" :value="gValue" @input="updateValue">
-                <p>{{ gValue }}</p>
+                <input type="text" v-model="cValue">
+                <p>{{ cValue }}</p>
             </div>
         </div>
     </div>
@@ -25,10 +25,19 @@ import Result from "./components/Result.vue";
 import AnotherResult from "./components/AnotherResult.vue";
 
 export default {
+    // computed props exist only to get data
     computed: {
-        gValue() {
-            return this.$store.getters.gValue;
+        cValue: {
+            get() {
+                return this.$store.getters.gValue;
+            },
+            set( val ) {
+                this.$store.dispatch( 'aUpdateValue', val )
+            }
         }
+        // gValue() {
+        //     return this.$store.getters.gValue;
+        // }
     },
     methods: {
         updateValue( event ) {
