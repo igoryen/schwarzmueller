@@ -7,6 +7,7 @@ export const store = new Vuex.Store({
     state: {
         counter: 0
     },
+    // to see the state
     getters: {
         doubleCounter: state => {
             return state.counter * 2;
@@ -15,7 +16,10 @@ export const store = new Vuex.Store({
             return state.counter + ' clicks';
         }
     },
-    // aka 'setters'
+    // aka 'setters'. To overwrite the state
+    // 'Setting' can be performed directly from components,
+    // but it's better done via actions
+    // especially if you have an async task to run
     mutations: {
         increment: (state, payload) => {
             state.counter += payload;
