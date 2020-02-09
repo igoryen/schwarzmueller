@@ -8,10 +8,10 @@
                 <app-another-result></app-another-result>
                 <hr />
                 <app-counter></app-counter>
-                <hr>
+                <hr />
                 <app-another-counter></app-another-counter>
-                <hr>
-                <input type="text" v-model="cValue">
+                <hr />
+                <input type="text" v-model="cValue" />
                 <p>{{ cValue }}</p>
             </div>
         </div>
@@ -31,8 +31,8 @@ export default {
             get() {
                 return this.$store.getters.gValue;
             },
-            set( val ) {
-                this.$store.dispatch( 'aUpdateValue', val )
+            set(val) {
+                this.$store.dispatch("aUpdateValue", val);
             }
         }
         // gValue() {
@@ -40,8 +40,8 @@ export default {
         // }
     },
     methods: {
-        updateValue( event ) {
-            this.$store.dispatch('aUpdateValue', event.target.value);
+        updateValue(event) {
+            this.$store.dispatch("aUpdateValue", event.target.value);
         }
     },
     components: {

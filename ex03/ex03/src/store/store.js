@@ -25,7 +25,7 @@ export const store = new Vuex.Store({
     // but it's better done via actions
     // especially if you have an async task to run
     mutations: {
-        mUpdateValue: ( state, payload) => {
+        mUpdateValue: (state, payload) => {
             state.value = payload;
         },
         increment: (state, payload) => {
@@ -36,22 +36,22 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
-        aUpdateValue: ( { commit }, payload) => {
+        aUpdateValue: ({ commit }, payload) => {
             commit('mUpdateValue', payload);
         },
-        increment: ({ commit }, payload ) => {
+        increment: ({ commit }, payload) => {
             commit('increment', payload)
         },
         decrement: ({ commit }, payload) => {
             commit('decrement', payload)
         },
         asyncIncrement: ({ commit }, payload) => {
-            setTimeout( () => {
+            setTimeout(() => {
                 commit('increment', payload.by)
             }, payload.duration);
         },
         asyncDecrement: ({ commit }, payload) => {
-            setTimeout( () => {
+            setTimeout(() => {
                 commit('decrement', payload.by)
             }, payload.duration);
         }
