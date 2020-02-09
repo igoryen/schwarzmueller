@@ -11,7 +11,8 @@
                 <hr>
                 <app-another-counter></app-another-counter>
                 <hr>
-                <input type="text" :value="gValue">
+                <input type="text" :value="gValue" @input="updateValue">
+                <p>{{ gValue }}</p>
             </div>
         </div>
     </div>
@@ -27,6 +28,11 @@ export default {
     computed: {
         gValue() {
             return this.$store.getters.gValue;
+        }
+    },
+    methods: {
+        updateValue( event ) {
+            this.$store.dispatch('aUpdateValue', event.target.value);
         }
     },
     components: {
