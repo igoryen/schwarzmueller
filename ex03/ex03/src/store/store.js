@@ -5,10 +5,14 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        counter: 0
+        counter: 0,
+        value: 0 // global variable
     },
     // to see the state
     getters: {
+        gValue: state => {
+            return state.value;
+        },
         doubleCounter: state => {
             return state.counter * 2;
         },
@@ -21,6 +25,9 @@ export const store = new Vuex.Store({
     // but it's better done via actions
     // especially if you have an async task to run
     mutations: {
+        mUpdateValue: ( state, payload) => {
+            state.value = payload;
+        },
         increment: (state, payload) => {
             state.counter += payload;
         },
@@ -29,6 +36,9 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
+        aUpdateValue: ( { commit }, payload) => {
+            commit('mUpdateValue', payload);
+        },
         increment: ({ commit }, payload ) => {
             commit('increment', payload)
         },

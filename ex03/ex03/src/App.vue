@@ -10,6 +10,8 @@
                 <app-counter></app-counter>
                 <hr>
                 <app-another-counter></app-another-counter>
+                <hr>
+                <input type="text" :value="gValue">
             </div>
         </div>
     </div>
@@ -22,6 +24,11 @@ import Result from "./components/Result.vue";
 import AnotherResult from "./components/AnotherResult.vue";
 
 export default {
+    computed: {
+        gValue() {
+            return this.$store.getters.gValue;
+        }
+    },
     components: {
         appCounter: Counter,
         appAnotherCounter: AnotherCounter,
