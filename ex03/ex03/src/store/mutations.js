@@ -1,4 +1,8 @@
 // general purpose tasks
-export const mUpdateValue = (state, payload) => {
-    state.value = payload;
+import * as types from './types';
+
+export default {
+    [types.MUTATE_UPDATE_VALUE]: (state, payload) => {
+        state.value = payload;
+    }
 };

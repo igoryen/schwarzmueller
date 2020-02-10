@@ -23,25 +23,23 @@ import Counter from "./components/Counter.vue";
 import AnotherCounter from "./components/AnotherCounter.vue";
 import Result from "./components/Result.vue";
 import AnotherResult from "./components/AnotherResult.vue";
+import * as types from './store/types';
 
 export default {
     // computed props exist only to get data
     computed: {
         cValue: {
             get() {
-                return this.$store.getters.gValue;
+                return this.$store.getters[types.VALUE];
             },
             set(val) {
-                this.$store.dispatch("aUpdateValue", val);
+                this.$store.dispatch(types.UPDATE_VALUE, val);
             }
         }
-        // gValue() {
-        //     return this.$store.getters.gValue;
-        // }
     },
     methods: {
         updateValue(event) {
-            this.$store.dispatch("aUpdateValue", event.target.value);
+            this.$store.dispatch(types.UPDATE_VALUE, event.target.value);
         }
     },
     components: {
