@@ -8,8 +8,11 @@
                 <app-another-result></app-another-result>
                 <hr />
                 <app-counter></app-counter>
-                <hr>
+                <hr />
                 <app-another-counter></app-another-counter>
+                <hr />
+                <input type="text" v-model="cValue" />
+                <p>{{ cValue }}</p>
             </div>
         </div>
     </div>
@@ -20,8 +23,25 @@ import Counter from "./components/Counter.vue";
 import AnotherCounter from "./components/AnotherCounter.vue";
 import Result from "./components/Result.vue";
 import AnotherResult from "./components/AnotherResult.vue";
+import * as types from './store/types';
 
 export default {
+    // computed props exist only to get data
+    computed: {
+        cValue: {
+            get() {
+                return this.$store.getters[types.VALUE];
+            },
+            set(val) {
+                this.$store.dispatch(types.UPDATE_VALUE, val);
+            }
+        }
+    },
+    methods: {
+        updateValue(event) {
+            this.$store.dispatch(types.UPDATE_VALUE, event.target.value);
+        }
+    },
     components: {
         appCounter: Counter,
         appAnotherCounter: AnotherCounter,
