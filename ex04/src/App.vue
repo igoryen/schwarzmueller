@@ -5,10 +5,57 @@
             <router-link to="/about">About</router-link>
         </div>
         <router-view />
+
+        <hr />
+        <div class="http">
+            <h1>Http</h1>
+            <div class="field">
+                <label for>Username</label>
+                <input type="text" v-model="user.username" />
+            </div>
+            <div class="field">
+                <label for>Mail</label>
+                <input type="text" v-model="user.email" />
+            </div>
+            <button @click="submit">Submit</button>
+        </div>
     </div>
 </template>
+    
+<script>
+export default {
+    data() {
+        return {
+            user: {
+                username: "",
+                email: ""
+            }
+        };
+    },
+    methods: {
+        submit() {
+            console.log(this.user);
+        }
+    }
+};
+</script>
 
 <style lang="scss">
+.http {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    width: 25%;
+    .field {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5em;
+    }
+}
 #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
