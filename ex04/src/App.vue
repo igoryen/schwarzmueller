@@ -44,7 +44,7 @@ export default {
         submit() {
             // console.log(this.user);
             this.$http
-            .post('https://vuejs-http-d34ff.firebaseio.com/data.json', this.user) // 'data' name is not mandatory
+            .post('', this.user) // 'data' name is not mandatory
                 .then(
                     response => {
                         console.log(response)
@@ -57,7 +57,7 @@ export default {
         },
         fetchData() {
             this.$http
-            .get('https://vuejs-http-d34ff.firebaseio.com/data.json')
+            .get('')
                 .then(
                     response => {
                         return response.json();
