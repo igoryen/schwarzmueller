@@ -10,7 +10,8 @@
                         <input
                                 type="text"
                                 id="email"
-                                class="form-control">
+                                class="form-control"
+                                v-model="email">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -101,7 +102,7 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Mail:</p>
+                        <p>Mail: {{ email }}</p>
                         <p>Password:</p>
                         <p>Age:</p>
                         <p>Message: </p>
@@ -124,6 +125,11 @@
 // import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-    name: "Home"
+    name: "Home",
+    data() {
+        return {
+            email: ''
+        }
+    }
 };
 </script>
