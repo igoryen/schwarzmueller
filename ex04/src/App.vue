@@ -18,6 +18,13 @@
                 <input type="text" v-model="user.email" />
             </div>
             <button @click="submit">Submit</button>
+            <hr>
+            <button @click="fetchData">Get Data</button>
+            <ul>
+                <li v-for="u in users" v-bind:key="u.username">
+                    {{ u.username }} ({{ u.email }})
+                </li>
+            </ul>
         </div>
     </div>
 </template>
@@ -29,16 +36,17 @@ export default {
             user: {
                 username: "",
                 email: ""
-            }
+            },
+            users: []
         };
     },
     methods: {
         submit() {
             // console.log(this.user);
-            this.$http.post('https://vuejs-http-d34ff.firebaseio.com/data.json', this.user) // 'data' name is not mandatory
+            this.$http
+            .post('https://vuejs-http-d34ff.firebaseio.com/data.json', this.user) // 'data' name is not mandatory
                 .then(
-                    response =>
-                    {
+                    response => {
                         console.log(response)
                     },
                     error => {
@@ -46,7 +54,23 @@ export default {
                     }
 
                 );
-
+        },
+        fetchData() {
+            this.$http
+            .get('https://vuejs-http-d34ff.firebaseio.com/data.json')
+                .then(
+                    response => {
+                        return response.json();
+                    }
+                ).then (
+                    data => {
+                        const resultArray = [];
+                        for (const key in data) {
+                            resultArray.push( data[key] );
+                        }
+                        this.users = resultArray;
+                    }
+                );
         }
     }
 };
@@ -66,6 +90,11 @@ export default {
         display: flex;
         flex-direction: column;
         padding: 0.5em;
+    }
+    li {
+        padding: 0.2em;
+        background-color: #fff;
+        margin: 0.2em;
     }
 }
 #app {
