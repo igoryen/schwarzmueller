@@ -16,7 +16,13 @@ Vue.http.interceptors.push((request, next) => {
     if (request.method == 'POST') { // appends, hence it needs a unique ID
         request.method = 'PUT'; // overwrites, no need of any ID
     }
-    next();
+    next(response => {
+        response.json = () => {
+            return {
+                messages: response.body
+            }
+        }
+    });
 });
 
 new Vue({
