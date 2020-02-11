@@ -9,6 +9,15 @@ Vue.config.productionTip = false;
 
 Vue.use(VueResource);
 Vue.http.options.root = 'https://vuejs-http-d34ff.firebaseio.com/data.json'; // use the $ sign ('$http') only when accessing it from inside your Vue instance
+Vue.http.interceptors.push((request, next) => {
+    console.log(request);
+    // intercept all the POST requests
+    // and convert them into PUT requests
+    if (request.method == 'POST') { // appends, hence it needs a unique ID
+        request.method = 'PUT'; // overwrites, no need of any ID
+    }
+    next();
+});
 
 new Vue({
   router,
