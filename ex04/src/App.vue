@@ -34,7 +34,19 @@ export default {
     },
     methods: {
         submit() {
-            console.log(this.user);
+            // console.log(this.user);
+            this.$http.post('https://vuejs-http-d34ff.firebaseio.com/data.json', this.user) // 'data' name is not mandatory
+                .then(
+                    response =>
+                    {
+                        console.log(response)
+                    },
+                    error => {
+                        console.log(error)
+                    }
+
+                );
+
         }
     }
 };
@@ -49,7 +61,7 @@ export default {
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
-    width: 25%;
+    max-width: 200px;
     .field {
         display: flex;
         flex-direction: column;
