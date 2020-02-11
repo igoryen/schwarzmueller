@@ -19,6 +19,8 @@
             </div>
             <button @click="submit">Submit</button>
             <hr>
+            <input type="text" v-model="node">
+            <br><br>
             <button @click="fetchData">Get Data</button>
             <ul>
                 <li v-for="u in users" v-bind:key="u.username">
@@ -38,7 +40,8 @@ export default {
                 email: ""
             },
             users: [],
-            resource: {}
+            resource: {},
+            node: 'data'
         };
     },
     methods: {
@@ -58,21 +61,38 @@ export default {
             //     );
         },
         fetchData() {
-            this.$http
-            .get('data.json')
-                .then(
-                    response => {
-                        return response.json();
+            this.resource.getData(
+                {
+                    node: this.node
+                }
+            ).then(
+                response => {
+                    return response.json();
+                }
+            ).then (
+                data => {
+                    const resultArray = [];
+                    for (const key in data) {
+                        resultArray.push( data[key] );
                     }
-                ).then (
-                    data => {
-                        const resultArray = [];
-                        for (const key in data) {
-                            resultArray.push( data[key] );
-                        }
-                        this.users = resultArray;
-                    }
-                );
+                    this.users = resultArray;
+                }
+            );
+            // this.$http
+            // .get('data.json')
+            //     .then(
+            //         response => {
+            //             return response.json();
+            //         }
+            //     ).then (
+            //         data => {
+            //             const resultArray = [];
+            //             for (const key in data) {
+            //                 resultArray.push( data[key] );
+            //             }
+            //             this.users = resultArray;
+            //         }
+            //     );
         }
     },
     created() { // this is a lifecycle
@@ -80,10 +100,13 @@ export default {
             saveAlt: {
                 method: 'POST',
                 url: 'alternative.json'
+            },
+            getData: {
+                method: 'GET'
             }
         }
         this.resource = this.$resource(
-            'data.json',
+            '{node}.json',
             {},
             customActions
         );
