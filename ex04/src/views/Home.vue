@@ -89,7 +89,12 @@
                     <select
                             id="priority"
                             class="form-control">
-                        <option></option>
+                        <option
+                            v-for="priority in priorities"
+                            v-bind:key="priority"
+                            :selected="priority == 'Medium'" >
+                            {{ priority }}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -143,7 +148,8 @@ export default {
             },
             message: 'A new text',
             sendMail: [],
-            gender: 'Male'
+            gender: 'Male',
+            priorities: ['High', 'Medium', 'Low']
         }
     }
 };
