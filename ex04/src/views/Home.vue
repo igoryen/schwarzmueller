@@ -88,7 +88,8 @@
                     <label for="priority">Priority</label>
                     <select
                             id="priority"
-                            class="form-control">
+                            class="form-control"
+                            v-model="selectedPriority">
                         <option
                             v-for="priority in priorities"
                             v-bind:key="priority"
@@ -149,6 +150,7 @@ export default {
             message: 'A new text',
             sendMail: [],
             gender: 'Male',
+            selectedPriority: 'High',
             priorities: ['High', 'Medium', 'Low']
         }
     }
