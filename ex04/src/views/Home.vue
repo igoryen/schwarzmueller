@@ -92,8 +92,7 @@
                             v-model="selectedPriority">
                         <option
                             v-for="priority in priorities"
-                            v-bind:key="priority"
-                            :selected="priority == 'Medium'" >
+                            v-bind:key="priority">
                             {{ priority }}
                         </option>
                     </select>
@@ -125,7 +124,7 @@
                             <li v-for="item in sendMail" v-bind:key="item">{{ item }}</li>
                         </ul>
                         <p>Gender: {{ gender }}</p>
-                        <p>Priority:</p>
+                        <p>Priority: {{ selectedPriority }}</p>
                         <p>Switched:</p>
                     </div>
                 </div>
