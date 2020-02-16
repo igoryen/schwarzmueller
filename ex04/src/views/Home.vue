@@ -4,44 +4,33 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <h1>File a Complaint</h1>
-                    <hr>
+                    <hr />
                     <div class="form-group">
                         <label for="email">Mail</label>
-                        <input
-                                type="text"
-                                id="email"
-                                class="form-control"
-                                v-model="userData.email">
+                        <input type="text" id="email" class="form-control" v-model="userData.email" />
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input
-                                type="password"
-                                id="password"
-                                class="form-control"
-                                v-model.lazy="userData.password">
+                            type="password"
+                            id="password"
+                            class="form-control"
+                            v-model.lazy="userData.password"
+                        />
                         <p>{{ userData.password }}</p>
                     </div>
                     <div class="form-group">
                         <label for="age">Age</label>
-                        <input
-                                type="number"
-                                id="age"
-                                class="form-control"
-                                v-model="userData.age">
+                        <input type="number" id="age" class="form-control" v-model="userData.age" />
                     </div>
-
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
-                    <label for="message">Message</label><br>
+                    <label for="message">Message</label>
+                    <br />
                     <!-- Interpolation between <textarea>{{ test }}</textarea> doesn't work!-->
-                    <textarea
-                            id="message"
-                            rows="5"
-                            class="form-control"
-                            v-model="message"></textarea>
+                    <textarea id="message" rows="5" class="form-control" v-model="message"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -49,65 +38,49 @@
                     <div class="form-group">
                         <label for="sendmail">
                             <input
-                                    type="checkbox"
-                                    id="sendmail"
-                                    value="SendMail"
-                                    v-model="sendMail"> Send Mail
+                                type="checkbox"
+                                id="sendmail"
+                                value="SendMail"
+                                v-model="sendMail"
+                            /> Send Mail
                         </label>
                         <label for="sendInfomail">
                             <input
-                                    type="checkbox"
-                                    id="sendInfomail"
-                                    value="SendInfoMail"
-                                    v-model="sendMail"> Send Infomail
+                                type="checkbox"
+                                id="sendInfomail"
+                                value="SendInfoMail"
+                                v-model="sendMail"
+                            /> Send Infomail
                         </label>
                     </div>
-
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 form-group">
                     <label for="male">
-                        <input
-                                type="radio"
-                                id="male"
-                                value="Male"
-                                v-model="gender"> Male
+                        <input type="radio" id="male" value="Male" v-model="gender" /> Male
                     </label>
                     <label for="female">
-                        <input
-                                type="radio"
-                                id="female"
-                                value="Female"
-                                v-model="gender"> Female
+                        <input type="radio" id="female" value="Female" v-model="gender" /> Female
                     </label>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
                     <label for="priority">Priority</label>
-                    <select
-                            id="priority"
-                            class="form-control"
-                            v-model="selectedPriority">
-                        <option
-                            v-for="priority in priorities"
-                            v-bind:key="priority">
-                            {{ priority }}
-                        </option>
+                    <select id="priority" class="form-control" v-model="selectedPriority">
+                        <option v-for="priority in priorities" v-bind:key="priority">{{ priority }}</option>
                     </select>
                 </div>
             </div>
-            <hr>
+            <hr />
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-                    <button
-                            class="btn btn-primary">Submit!
-                    </button>
+                    <button class="btn btn-primary">Submit!</button>
                 </div>
             </div>
         </form>
-        <hr>
+        <hr />
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
@@ -119,7 +92,9 @@
                         <p>Password: {{ userData.password }}</p>
                         <p>Age: {{ userData.age }}</p>
                         <p style="white-space: pre">Message: {{ message }}</p>
-                        <p><strong>Send Mail?</strong></p>
+                        <p>
+                            <strong>Send Mail?</strong>
+                        </p>
                         <ul>
                             <li v-for="item in sendMail" v-bind:key="item">{{ item }}</li>
                         </ul>
@@ -142,16 +117,16 @@ export default {
     data() {
         return {
             userData: {
-                email: '',
-                password: '',
+                email: "",
+                password: "",
                 age: 27
             },
-            message: 'A new text',
+            message: "A new text",
             sendMail: [],
-            gender: 'Male',
-            selectedPriority: 'High',
-            priorities: ['High', 'Medium', 'Low']
-        }
+            gender: "Male",
+            selectedPriority: "High",
+            priorities: ["High", "Medium", "Low"]
+        };
     }
 };
 </script>
