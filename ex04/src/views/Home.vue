@@ -73,6 +73,11 @@
                     </select>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 from-group">
+                    <app-switch></app-switch>
+                </div>
+            </div>
             <hr />
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -111,9 +116,12 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
-
+import Switch from '../Switch';
 export default {
     name: "Home",
+    components: {
+        appSwitch: Switch
+    },
     data() {
         return {
             userData: {
