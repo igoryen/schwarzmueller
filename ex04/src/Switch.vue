@@ -1,24 +1,16 @@
 <template>
     <div>
-        <div id="on" @click="isOn = true" class="{active: isOn}">ON</div>
-        <div id="off" @click="isOn = false" class="{active: !isOn}">OFF</div>
+        <div id="on" @click="switched(true)" :class="{active: value}">ON</div>
+        <div id="off" @click="switched(false)" :class="{active: !value}">OFF</div>
     </div>
 </template>
 
 <script>
 export default {
-    data() {
-        return {
-            userData: {
-                email: "",
-                password: "",
-                age: 27
-            },
-            message: "A new text",
-            sendMail: [],
-            gender: "Mail",
-            selectedPriority: "High",
-            priorities: ["High", "Medium", "Low"]
+    props: ["value"],
+    methods: {
+        switched( isOn ){
+            this.$emit("input", isOn ); // v-model is waiting for event from 'input'
         }
     }
 };
@@ -38,15 +30,17 @@ export default {
     width: 40px;
 }
 #on {
-    &:active,
-    &:hover {
+    &:hover,
+    &.active
+    {
         background-color: lightgreen;
     }
 }
 
 #off {
-    &:active,
-    &:hover {
+    &:hover,
+    &.active    
+    {
         background-color: lightcoral;
     }
 }
